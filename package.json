@@ -2,7 +2,7 @@
   "name": "nuxt-usefetchquery",
   "version": "1.0.0",
   "description": "A Nuxt module providing composables to help caching, synchronizing and updating server state.",
-  "repository": "ElisePatrikainen/nuxt-usefetchquery",
+  "repository": "ElisePatrikainen/nuxt-useFetchQuery",
   "license": "MIT",
   "type": "module",
   "exports": {

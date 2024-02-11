@@ -14,6 +14,8 @@ Find and replace all on all files (CMD+SHIFT+F):
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
+🚧🚧 ***UseFetchQuery is currently a draft for testing a module idea, it is therefore absolutely not usable.***
+
 UseFetchQuery is a Nuxt module providing composables to help caching, synchronizing and updating server state in our applications. It is largely inspired by [TanstackQuery](https://tanstack.com/query/latest) and [SWR](https://swr.vercel.app/), and aims to build the essential functionalities of these libraries on the top of `useFetch` and `useAsyncData`.
 
 <!-- - [✨ &nbsp;Release Notes](/CHANGELOG.md) -->
@@ -22,7 +24,7 @@ UseFetchQuery is a Nuxt module providing composables to help caching, synchroniz
 
 ## Features
 
-The goal of UseFetchQuery is to provide essential server state management functionalities, such as :
+The goal of UseFetchQuery is to provide essential server state management functionalities, such as:
 - caching out of the box the data fetch from the server
 - setting a life time to our cache (and refreshing the data when the cache is expired)
 - refreshing data on window events (focus, reconnection)
@@ -38,11 +40,11 @@ const { data, error } = await useFetchQuery(`/api/products`, { refreshTime: 1500
 // The data will be cached for 15 seconds, and refreshed afterwards
 ```
 
-Nb: UseFetchQuery does currently not poll data (TODO ?), but re-fetches them in the background once they are stale on the following events :
+Nb: UseFetchQuery does currently not poll data (TODO ?), but re-fetches them in the background once they are stale on the following events:
 - new instances of the composable mount
-- window events : refocus, reconnection
+- window events: refocus, reconnection
 
-You can also choose to never revalidate cache, by setting the `refreshTime` option to `infinite` :
+You can also choose to never revalidate cache, by setting the `refreshTime` option to `infinite`:
 
 ```js
 const { data, error } = await useFetchQuery(`/api/products`, { refreshTime: 'infinite' })
@@ -50,7 +52,7 @@ const { data, error } = await useFetchQuery(`/api/products`, { refreshTime: 'inf
 
 ## Refreshing state
 
-By default, refreshing is done on the background. This means that :
+By default, refreshing is done on the background. This means that:
 - useFetchQuery will first display the stale data, and update them once they are revalidated
 - if you use `Suspense`, it will be effective only on the first call, when no data has been fetched yet, and will be disabled on refresh
 
@@ -63,23 +65,23 @@ const { data, fetching, refreshing } = await useFetchQuery(`/api/products`, { re
 // `fetching` can be used to display a full page loader (skeleton, etc) when there is no data 
 // `refreshing` can be used to display a smaller loader on revalidation, which would not prevent displaying the stale data meanwhile
 ```
-In case you still want `suspense` to be effective while refreshing, you can set the `suspense` option to `true` :
+In case you still want `suspense` to be effective while refreshing, you can set the `suspense` option to `true`:
 
 ```js
 const { data, error } = await useFetchQuery(`/api/products`, { suspenseOnRefresh: true })
 ```
 
-Nb: `useFetchQuery` still exposes the `pending` and `status` refs returned by `useFetch`, without altering their behaviour. Therefore, when the data is being fetched or revalidated :
+Nb: `useFetchQuery` still exposes the `pending` and `status` refs returned by `useFetch`, without altering their behaviour. Therefore, when the data is being fetched or revalidated:
 - `pending` which will be set to `true`
 - `status` which will be set to `pending`
 
 ## Refresh on window events
 
-By default, the data will be revalidated (in the background) on the following events :
+By default, the data will be revalidated (in the background) on the following events:
 - window refocus
 - network reconnection
 
-You can disable this behaviour by setting the `refreshOnFocus` and `refreshOnReconnection` options to `false` :
+You can disable this behaviour by setting the `refreshOnFocus` and `refreshOnReconnection` options to `false`:
 
 ```js
 const { data, error } = await useFetchQuery(`/api/products`, { refreshOnFocus: false, refreshOnReconnection: false})

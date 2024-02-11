@@ -16,7 +16,9 @@ Find and replace all on all files (CMD+SHIFT+F):
 
 🚧🚧 ***UseFetchQuery is currently a draft for testing a module idea, it is therefore absolutely not usable.***
 
-UseFetchQuery is a Nuxt module providing composables to help caching, synchronizing and updating server state in our applications. It is largely inspired by [TanstackQuery](https://tanstack.com/query/latest) and [SWR](https://swr.vercel.app/), and aims to build the essential functionalities of these libraries on the top of `useFetch` and `useAsyncData`.
+UseFetchQuery is a Nuxt module providing composables to help caching, synchronizing and updating server state in our applications. It is largely inspired by [TanstackQuery](https://tanstack.com/query/latest) and [SWR](https://swr.vercel.app/), and aims to build the essential functionalities of these libraries on the top of `useFetch` and `useAsyncData` (TODO).
+
+*Note: for the moment, UseFetchQuery only provides a composable built on the top of `useFetch`.*
 
 <!-- - [✨ &nbsp;Release Notes](/CHANGELOG.md) -->
 <!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/nuxt-usefetchquery?file=playground%2Fapp.vue) -->
@@ -72,8 +74,8 @@ const { data, error } = await useFetchQuery(`/api/products`, { suspenseOnRefresh
 ```
 
 Nb: `useFetchQuery` still exposes the `pending` and `status` refs returned by `useFetch`, without altering their behaviour. Therefore, when the data is being fetched or revalidated:
-- `pending` which will be set to `true`
-- `status` which will be set to `pending`
+- `pending` will be set to `true`
+- `status` will be set to `pending`
 
 ## Refresh on window events
 

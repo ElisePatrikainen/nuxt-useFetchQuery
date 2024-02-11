@@ -1,6 +1,7 @@
 <template>
     <h2>Slow endpoint page</h2>
-    <div style="margin-bottom: 1rem; font-style: italic;">A page with a slow endpoint for better testing and debugging.</div>
+    <div style="margin-bottom: 1rem; font-style: italic;">A page with a slow endpoint for better testing and debugging.
+    </div>
     <div>Debugging:
         <ul>
             <li>content: {{ date }}</li>

@@ -5,13 +5,13 @@ const { data, error, pending, refreshing } = await useFetchQuery(`https://fakest
 
 <template>
     <h2>Item details:</h2>
-        <div>Debugging:
-            <ul>
-                <li>pending: {{ pending }}</li>
-                <li>fetching: TODO</li>
-                <li>refreshing: {{ refreshing }}</li>
-            </ul>
-        </div>
+    <div>Debugging:
+        <ul>
+            <li>pending: {{ pending }}</li>
+            <li>fetching: TODO</li>
+            <li>refreshing: {{ refreshing }}</li>
+        </ul>
+    </div>
     <section>
         <div v-if="error">Error</div>
         <div v-else>
